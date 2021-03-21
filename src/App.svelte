@@ -9,7 +9,11 @@
 
   const maxLength = 140
 
-  const handleSubmit = (event) => {
+  const handleSubmit = () => {
+    if (Object.values(post).includes("")) {
+      alert("llena los campos")
+      return
+    }
     db.collection('posts').doc().set({
       ...post,
       creationTimestamp: Date.now()
